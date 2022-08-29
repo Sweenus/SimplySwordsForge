@@ -7,6 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import net.sweenus.simplyswordsforge.effect.ModEffects;
 
 public class PlagueSwordItem extends SwordItem {
     public PlagueSwordItem(Tier pTier, int attackDamage, float attackSpeed, Properties settings) {
@@ -16,11 +17,12 @@ public class PlagueSwordItem extends SwordItem {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
-        int phitchance = 15; //SimplySwordsConfig.getIntValue("plague_chance");
-        int pduration = 50; //SimplySwordsConfig.getIntValue("plague_duration");
+        int phitchance = 55; //SimplySwordsConfig.getIntValue("plague_chance");
+        int pduration = 500; //SimplySwordsConfig.getIntValue("plague_duration");
 
         if (attacker.getRandom().nextInt(100) <= phitchance) {
             target.addEffect(new MobEffectInstance(MobEffects.WITHER, pduration, 1), attacker);
+            target.addEffect(new MobEffectInstance(ModEffects.PLAGUE.get(), pduration, 1), attacker);
         }
 
         return super.hurtEnemy(stack, target, attacker);
