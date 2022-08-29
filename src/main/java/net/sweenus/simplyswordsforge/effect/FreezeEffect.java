@@ -1,31 +1,31 @@
 package net.sweenus.simplyswordsforge.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
 
-public class FreezeEffect extends StatusEffect {
-    public FreezeEffect(StatusEffectCategory statusEffectCategory, int color) {
-        super (statusEffectCategory, color);
+public class FreezeEffect extends MobEffect {
+    public FreezeEffect(MobEffectCategory MobEffectCategory, int color) {
+        super (MobEffectCategory, color);
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
-        if (!pLivingEntity.world.isClient()) {
+    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+        if (!pLivingEntity.level.isClientSide()) {
             double x = pLivingEntity.getX();
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
 
-            pLivingEntity.teleport(x, y, z);
-            pLivingEntity.setVelocity(0, 0, 0);
+            pLivingEntity.teleportTo(x, y, z);
+            pLivingEntity.setDeltaMovement(0, 0, 0);
         }
 
-        super.applyUpdateEffect(pLivingEntity, pAmplifier);
+        super.applyEffectTick(pLivingEntity, pAmplifier);
 
     }
 
     @Override
-    public boolean canApplyUpdateEffect(int pDuration, int pAmplifier) {
+    public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
         return true;
     }
 

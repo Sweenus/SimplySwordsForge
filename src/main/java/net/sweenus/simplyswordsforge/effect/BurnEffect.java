@@ -1,34 +1,35 @@
 package net.sweenus.simplyswordsforge.effect;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
 
-public class BurnEffect extends StatusEffect {
-    public BurnEffect(StatusEffectCategory statusEffectCategory, int color) {super (statusEffectCategory, color); }
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
+
+public class BurnEffect extends MobEffect {
+    public BurnEffect(MobEffectCategory mobEffectCategory, int color) {super (mobEffectCategory, color); }
 
     @Override
-    public void applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
-        if (!pLivingEntity.world.isClient()) {
-            ServerWorld world = (ServerWorld)pLivingEntity.world;
-            BlockPos position = pLivingEntity.getBlockPos();
+    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+        if (!pLivingEntity.level.isClientSide()) {
+            ServerLevel level = (ServerLevel)pLivingEntity.level;
+            BlockPos position = pLivingEntity.getOnPos();
 
-            Entity fireball = EntityType.FIREBALL.spawn(world, null, null, null, position, SpawnReason.TRIGGERED, true, true);
-            fireball.setVelocity(0, 5, 0);
+            Entity fireball = EntityType.FIREBALL.spawn(level, null, null, null, position, MobSpawnType.TRIGGERED, true, true);
+            fireball.setDeltaMovement(0, 5, 0);
 
         }
 
-        super.applyUpdateEffect(pLivingEntity, pAmplifier);
+        super.applyEffectTick(pLivingEntity, pAmplifier);
 
     }
 
     @Override
-    public boolean canApplyUpdateEffect(int pDuration, int pAmplifier) {
+    public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
         return true;
     }
 
