@@ -1,24 +1,31 @@
 package net.sweenus.simplyswordsforge.util;
 
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.EnchantRandomlyLootFunction;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.util.Identifier;
-import net.sweenus.simplyswords.config.SimplySwordsConfig;
-import net.sweenus.simplyswords.item.ModItems;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraftforge.event.LootTableLoadEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ModLootTableModifiers {
 
-    private static final Identifier ELDER_GUARDIAN_ID  = new Identifier("minecraft", "entities/elder_guardian");
+    /*private static final Identifier ELDER_GUARDIAN_ID  = new Identifier("minecraft", "entities/elder_guardian");
     private static final Identifier WARDEN_ID  = new Identifier("minecraft", "entities/warden");
 
     private static final Identifier JUNGLE_TEMPLE_CHEST_ID  = new Identifier("minecraft", "chests/jungle_temple");
 
     private static final Identifier ANCIENT_CITY_CHEST_ID  = new Identifier("minecraft", "chests/ancient_city");
 
+    @SubscribeEvent
+    public void lootLoad(LootTableLoadEvent evt) {
+        if (evt.getName().toString().equals("minecraft:chests/simple_dungeon")) {
+
+            LootEntry entry = new LootTable.Builder(new ResourceLocation("mymod:inject/simple_dungeon"), <weight>, <quality>, <conditions>, <entryName>); // weight doesn't matter since it's the only entry in the pool. Other params set as you wish.
+
+            LootPool pool = new LootPool(new LootEntry[] {entry}, <conditions>, <rolls>, <bonusRolls>, <name>); // Other params set as you wish.
+
+            evt.getTable().addPool(pool);
+        }
+    }
 
     public static void modifyLootTables() {
 
@@ -37,12 +44,12 @@ public class ModLootTableModifiers {
                         .with(ItemEntry.builder(ModItems.ELECTRIC_SWORD));
                 tableBuilder.pool(pool);
 
-            }*/
+            }
 
             if (SimplySwordsConfig.getBooleanValue("add_weapons_to_loot_tables") && id.getPath().contains("chests") && !id.getPath().contains("village")) {
 
                 //STANDARD POOL
-                LootPool.Builder pool = LootPool.builder()
+                LootPool.Builder pool = new LootPool.Builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(SimplySwordsConfig.getFloatValue("standard_loot_table_weight"))) // 1 = 100% of the time
                         .apply(EnchantRandomlyLootFunction.builder())
@@ -110,5 +117,5 @@ public class ModLootTableModifiers {
             }
 
         });
-    }
+    }*/
 }

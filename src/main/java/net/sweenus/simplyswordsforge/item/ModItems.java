@@ -1,14 +1,12 @@
 package net.sweenus.simplyswordsforge.item;
 
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sweenus.simplyswordsforge.SimplySwords;
+import net.sweenus.simplyswordsforge.item.custom.*;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -165,57 +163,56 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
 
     //RUNIC
-    /*
     public static final RegistryObject<Item> RUNIC_LONGSWORD = ITEMS.register( "runic_longsword",
-            new PoisonSwordItem(ToolMaterials.NETHERITE, 3, -2.4f,
+            () -> new PoisonSwordItem(Tiers.NETHERITE, 3, -2.4f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> RUNIC_TWINBLADE = ITEMS.register( "runic_twinblade",
-            new WildfireSwordItem(ToolMaterials.NETHERITE, 3, -1.7f,
+            () -> new WildfireSwordItem(Tiers.NETHERITE, 3, -1.7f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> RUNIC_RAPIER = ITEMS.register( "runic_rapier",
-            new SpeedSwordItem(ToolMaterials.NETHERITE, 2, -1.6f,
+            () -> new SpeedSwordItem(Tiers.NETHERITE, 2, -1.6f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> RUNIC_KATANA = ITEMS.register( "runic_katana",
-            new WildfireSwordItem(ToolMaterials.NETHERITE, 3, -2f,
+            () -> new WildfireSwordItem(Tiers.NETHERITE, 3, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> RUNIC_SAI = ITEMS.register( "runic_sai",
-            new SlownessSwordItem(ToolMaterials.NETHERITE, 0, -1.1f,
+            () -> new SlownessSwordItem(Tiers.NETHERITE, 0, -1.1f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
 
     public static final RegistryObject<Item> RUNIC_SPEAR = ITEMS.register( "runic_spear",
-            new FreezeSwordItem(ToolMaterials.NETHERITE, 3, -2.6f,
+            () -> new FreezeSwordItem(Tiers.NETHERITE, 3, -2.6f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> RUNIC_GLAIVE = ITEMS.register( "runic_glaive",
-            new WildfireSwordItem(ToolMaterials.NETHERITE, 3, -2.6f,
+            () -> new WildfireSwordItem(Tiers.NETHERITE, 3, -2.6f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> RUNIC_CUTLASS = ITEMS.register( "runic_cutlass",
-            new LevitationSwordItem(ToolMaterials.NETHERITE, 3, -2f,
+            () -> new LevitationSwordItem(Tiers.NETHERITE, 3, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
     public static final RegistryObject<Item> RUNIC_CLAYMORE = ITEMS.register( "runic_claymore",
-            new FreezeSwordItem(ToolMaterials.NETHERITE, 6, -2.8f,
+            () -> new FreezeSwordItem(Tiers.NETHERITE, 6, -2.8f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
 
     //SPECIAL
     public static final RegistryObject<Item> BRIMSTONE_CLAYMORE = ITEMS.register( "brimstone_claymore",
-            new FireSwordItem(ToolMaterials.NETHERITE, 6, -2.8f,
+            () -> new FireSwordItem(Tiers.NETHERITE, 6, -2.8f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> WATCHER_CLAYMORE = ITEMS.register( "watcher_claymore",
-            new WatcherSwordItem(ToolMaterials.NETHERITE, 6, -2.8f,
+            () -> new WatcherSwordItem(Tiers.NETHERITE, 6, -2.8f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> STORMS_EDGE = ITEMS.register( "storms_edge",
-            new StormSwordItem(ToolMaterials.NETHERITE, 3, -1.7f,
+            () -> new StormSwordItem(Tiers.NETHERITE, 3, -1.7f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> STORMBRINGER = ITEMS.register( "stormbringer",
-            new StormSwordItem(ToolMaterials.NETHERITE, 3, -2.4f,
+            () -> new StormSwordItem(Tiers.NETHERITE, 3, -2.4f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> SWORD_ON_A_STICK = ITEMS.register( "sword_on_a_stick",
@@ -223,17 +220,17 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> BRAMBLETHORN = ITEMS.register( "bramblethorn",
-            new BrambleSwordItem(ToolMaterials.WOOD, 6, -1.6f,
+            () -> new BrambleSwordItem(Tiers.WOOD, 6, -1.6f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> WATCHING_WARGLAIVE = ITEMS.register( "watching_warglaive",
-            new WatcherSwordItem(ToolMaterials.NETHERITE, 3, -2.2f,
+            () -> new WatcherSwordItem(Tiers.NETHERITE, 3, -2.2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> TOXIC_LONGSWORD = ITEMS.register( "toxic_longsword",
-            new PlagueSwordItem(ToolMaterials.NETHERITE, 3, -2.4f,
+            () -> new PlagueSwordItem(Tiers.NETHERITE, 3, -2.4f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
-*/
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

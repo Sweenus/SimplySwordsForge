@@ -20,7 +20,7 @@ public class StormEffect extends MobEffect {
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
             var pPlayer = pLivingEntity.getLastHurtByMob();
-            Box box = new Box(x + 15, y +5, z + 15, x - 15, y - 5, z - 15);
+     /*       Box box = new Box(x + 15, y +5, z + 15, x - 15, y - 5, z - 15);
 
             //for(Entity e: level.getEntitiesByType(pLivingEntity.getType(), box, EntityPredicates.VALID_ENTITY))
             for(Entity e: level.getOtherEntities(pPlayer, box, EntityPredicates.VALID_LIVING_ENTITY))
@@ -38,7 +38,7 @@ public class StormEffect extends MobEffect {
                 }
             }
 
-        }
+       */ }
 
         super.applyEffectTick(pLivingEntity, pAmplifier);
 

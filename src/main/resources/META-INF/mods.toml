@@ -14,19 +14,19 @@ license = "GNU LGPL 3.0"
 #issueTrackerURL="http://my.issue.tracker/" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
-logoFile = "logo.png"
+logoFile = "logo2.png"
 # The modid of the mod
 modId = "simplyswords" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
 # see the associated build.gradle script for how to populate this completely automatically during a build
-version = "1.10-1.18.2" #mandatory
+version = "1.10 ALPHA01 -1.18.2" #mandatory
 # A display name for the mod
-displayName = "SimplySwords" #mandatory
+displayName = "Simply Swords" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="http://example.com/" #optional
+displayURL="https://www.curseforge.com/minecraft/mc-mods/simply-swords" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 #logoFile="simplyswordsforge.png" #optional
 # A text field displayed in the mod UI
@@ -43,7 +43,7 @@ authors = "Sweenus" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description = '''
-
+A variety of unique swords to add to your minecraft repertoire.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.simplyswords]] #optional

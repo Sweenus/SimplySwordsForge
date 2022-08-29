@@ -1,33 +1,33 @@
 package net.sweenus.simplyswordsforge.item.custom;
 
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
-import net.sweenus.simplyswords.config.SimplySwordsConfig;
-import net.sweenus.simplyswords.effect.ModEffects;
+
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
+import net.sweenus.simplyswordsforge.effect.ModEffects;
 
 public class FreezeSwordItem extends SwordItem {
-    public FreezeSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
-        super(toolMaterial, attackDamage, attackSpeed, settings);
+    public FreezeSwordItem(Tier pTier, int attackDamage, float attackSpeed, Properties settings) {
+        super(pTier, attackDamage, attackSpeed, settings);
     }
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        int fhitchance = SimplySwordsConfig.getIntValue("freeze_chance");
-        int fduration = SimplySwordsConfig.getIntValue("freeze_duration");
-        int sduration = SimplySwordsConfig.getIntValue("slowness_duration");
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        int fhitchance = 15; //SimplySwordsConfig.getIntValue("freeze_chance");
+        int fduration = 50; //SimplySwordsConfig.getIntValue("freeze_duration");
+        int sduration = 50; //SimplySwordsConfig.getIntValue("slowness_duration");
 
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, sduration, 1), attacker);
+        target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, sduration, 1), attacker);
 
         if (attacker.getRandom().nextInt(100) <= fhitchance) {
-            target.addStatusEffect(new StatusEffectInstance(ModEffects.FREEZE, fduration, 1), attacker);
+            target.addEffect(new MobEffectInstance(ModEffects.FREEZE.get(), fduration, 1), attacker);
         }
 
-        return super.postHit(stack, target, attacker);
+        return super.hurtEnemy(stack, target, attacker);
 
     }
 

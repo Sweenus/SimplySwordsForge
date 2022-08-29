@@ -22,19 +22,19 @@ public class WatcherEffect extends MobEffect {
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
             int pduration = 1;
-            float rAmount = SimplySwordsConfig.getFloatValue("watcher_restore_amount");
-            Box box = new Box(x + 10, y +10, z + 10, x - 10, y - 10, z - 10);
+            float rAmount = 0.5f; //SimplySwordsConfig.getFloatValue("watcher_restore_amount");
+            //Box box = new Box(x + 10, y +10, z + 10, x - 10, y - 10, z - 10);
             var pPlayer = pLivingEntity.getLastHurtByMob();
 
             //for(Entity e: level.getEntitiesByType(pLivingEntity.getType(), box, EntityPredicates.VALID_ENTITY))
-            for(Entity e: level.getOtherEntities(pPlayer, box, EntityPredicates.VALID_ENTITY))
+            /* for(Entity e: level.getOtherEntities(pPlayer, box, EntityPredicates.VALID_ENTITY))
             {
                 if (e != null && pPlayer != null){
                     e.hurt(DamageSource.FREEZE, rAmount);
                     pPlayer.setHealth(pPlayer.getHealth() + rAmount);
                     level.playSound(null, position, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.2f, 1f);
                 }
-            }
+            }*/
 
         }
 

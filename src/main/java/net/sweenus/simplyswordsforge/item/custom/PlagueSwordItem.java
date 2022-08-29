@@ -1,30 +1,29 @@
 package net.sweenus.simplyswordsforge.item.custom;
 
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
-import net.sweenus.simplyswords.config.SimplySwordsConfig;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 
 public class PlagueSwordItem extends SwordItem {
-    public PlagueSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
-        super(toolMaterial, attackDamage, attackSpeed, settings);
+    public PlagueSwordItem(Tier pTier, int attackDamage, float attackSpeed, Properties settings) {
+        super(pTier, attackDamage, attackSpeed, settings);
     }
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
-        int phitchance = SimplySwordsConfig.getIntValue("plague_chance");
-        int pduration = SimplySwordsConfig.getIntValue("plague_duration");
+        int phitchance = 15; //SimplySwordsConfig.getIntValue("plague_chance");
+        int pduration = 50; //SimplySwordsConfig.getIntValue("plague_duration");
 
         if (attacker.getRandom().nextInt(100) <= phitchance) {
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, pduration, 1), attacker);
+            target.addEffect(new MobEffectInstance(MobEffects.WITHER, pduration, 1), attacker);
         }
 
-        return super.postHit(stack, target, attacker);
+        return super.hurtEnemy(stack, target, attacker);
 
     }
 
