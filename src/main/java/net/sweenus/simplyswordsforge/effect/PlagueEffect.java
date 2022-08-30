@@ -7,10 +7,14 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.AABB;
+
+import java.util.List;
 
 public class PlagueEffect extends MobEffect {
     public PlagueEffect(MobEffectCategory mobEffectCategory, int color) {super (mobEffectCategory, color); }
@@ -18,28 +22,22 @@ public class PlagueEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         if (!pLivingEntity.level.isClientSide()) {
-            ServerLevel level = (ServerLevel)pLivingEntity.level;
+            ServerLevel llevel = (ServerLevel)pLivingEntity.level;
             BlockPos position = pLivingEntity.getOnPos();
-            int x = (int) pLivingEntity.getX();
-            int y = (int) pLivingEntity.getY();
-            int z = (int) pLivingEntity.getZ();
+            double x = pLivingEntity.getX();
+            double y = pLivingEntity.getY();
+            double z = pLivingEntity.getZ();
             var attacker = pLivingEntity.getLastHurtByMob();
             //int spreadchance = SimplySwordsConfig.getIntValue("plague_spread_chance");
 
-            if (pLivingEntity.getRandom().nextInt(100) <= 90) {
-                AABB boundingBox = pLivingEntity.getBoundingBox().inflate(15);
-                    BoundingBox box = new BoundingBox(x + 10, y + 5, z + 10, x - 10, y - 5, z - 10);
+           // if (pLivingEntity.getRandom().nextInt(100) <= 90) {
+                AABB aabb = new AABB(x, y, z, (x + 1), (y + 1), (z + 1)).inflate(20).expandTowards(0.0D, pLivingEntity.level.getMaxBuildHeight(), 0.0D);
+                List<LivingEntity> list = pLivingEntity.level.getEntitiesOfClass(LivingEntity.class, aabb);
 
-                for (LivingEntity tlivingentity : attacker.level.getNearbyEntities(Zombie.class, null, attacker,boundingBox)) {
-                    tlivingentity.addEffect(new MobEffectInstance(MobEffects.WITHER, 5, 1), attacker);
+                for (LivingEntity livingEntity : list) {
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 500, 1));
                 }
-
-                    //for(Entity e: level.getNearbyEntities(null, EntityPredicate.ANY , attacker,  box )) {
-                    //    if (e != null) {
-                    //        //end me
-                    //    }
-                //}
-            }
+           // }
 
         }
 

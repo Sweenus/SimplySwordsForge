@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.sweenus.simplyswordsforge.effect.ModEffects;
 import net.sweenus.simplyswordsforge.item.ModItems;
 import org.slf4j.Logger;
 
@@ -26,6 +27,8 @@ public class SimplySwords {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModEffects.MOB_EFFECTS.register(modEventBus);
+
 
         modEventBus.addListener(this::commonSetup);
 

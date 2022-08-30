@@ -4,7 +4,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.phys.AABB;
+
+import java.util.List;
 
 public class WildfireEffect extends MobEffect {
     public WildfireEffect(MobEffectCategory mobEffectCategory, int color) {super (mobEffectCategory, color); }
@@ -18,14 +23,12 @@ public class WildfireEffect extends MobEffect {
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
             int pduration = 30; //SimplySwordsConfig.getIntValue("wildfire_duration");
-            /*Box box = new Box(x + 10, y +5, z + 10, x - 10, y - 5, z - 10);
+            AABB aabb = new AABB(x, y, z, (x + 1), (y + 1), (z + 1)).inflate(20).expandTowards(0.0D, pLivingEntity.level.getMaxBuildHeight(), 0.0D);
+            List<LivingEntity> list = pLivingEntity.level.getEntitiesOfClass(LivingEntity.class, aabb);
 
-            for(Entity e: level.getEntitiesByType(pLivingEntity.getType(), box, EntityPredicates.VALID_ENTITY))
-            {
-                if (e != null) {
-                    e.setOnFireFor(pduration);
-                }
-            }*/
+            for (LivingEntity livingEntity : list) {
+                livingEntity.setSecondsOnFire(8);
+            }
 
         }
 
