@@ -1,7 +1,9 @@
 package net.sweenus.simplyswordsforge.effect;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -11,6 +13,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.AABB;
 
@@ -27,7 +30,8 @@ public class PlagueEffect extends MobEffect {
             double x = pLivingEntity.getX();
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
-            var attacker = pLivingEntity.getLastHurtByMob();
+            Player player = Minecraft.getInstance().player;
+            var attacker = Minecraft.getInstance().player;
             //int spreadchance = SimplySwordsConfig.getIntValue("plague_spread_chance");
 
             if (pLivingEntity.getRandom().nextInt(100) <= 1) {
@@ -35,8 +39,8 @@ public class PlagueEffect extends MobEffect {
                 List<LivingEntity> list = pLivingEntity.level.getEntitiesOfClass(LivingEntity.class, aabb);
 
                 for (LivingEntity livingEntity : list) {
-                    if (livingEntity != attacker && livingEntity.getRandom().nextInt(100) <= 15) {
-                        livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1));
+                    if (livingEntity.getClass() != ServerPlayer.class && livingEntity.getRandom().nextInt(100) <= 15) {
+                            livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1));
                     }
                 }
             }

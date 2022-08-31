@@ -1,5 +1,6 @@
 package net.sweenus.simplyswordsforge.effect;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -19,7 +20,7 @@ public class OmenEffect extends MobEffect {
             double x = pLivingEntity.getX();
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
-            var pPlayer = pLivingEntity.getLastHurtMob();
+            var pPlayer = Minecraft.getInstance().player;
             float absAmount = .5f; //SimplySwordsConfig.getFloatValue("omen_absorption_amount");
             int pduration = 5;
             int pthreshold = 60; //SimplySwordsConfig.getIntValue("omen_instantkill_threshold");
