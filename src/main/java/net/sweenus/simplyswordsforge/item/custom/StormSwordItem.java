@@ -16,7 +16,7 @@ public class StormSwordItem extends SwordItem {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
-        int phitchance = 15; //SimplySwordsConfig.getIntValue("storm_chance");
+        int phitchance = 85; //SimplySwordsConfig.getIntValue("storm_chance");
 
         if (attacker.getRandom().nextInt(100) <= phitchance) {
                 target.addEffect(new MobEffectInstance(ModEffects.STORM.get(), 2, 1), attacker);

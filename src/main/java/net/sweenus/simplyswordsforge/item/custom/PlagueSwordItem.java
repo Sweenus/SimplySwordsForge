@@ -24,7 +24,7 @@ public class PlagueSwordItem extends SwordItem {
 
         if (attacker.getRandom().nextInt(100) <= phitchance) {
             target.addEffect(new MobEffectInstance(MobEffects.WITHER, pduration, 1), attacker);
-            target.addEffect(new MobEffectInstance(ModEffects.PLAGUE.get(), pduration, 1));
+            target.addEffect(new MobEffectInstance(ModEffects.PLAGUE.get(), pduration, 1), attacker);
         }
 
         return super.hurtEnemy(stack, target, attacker);
