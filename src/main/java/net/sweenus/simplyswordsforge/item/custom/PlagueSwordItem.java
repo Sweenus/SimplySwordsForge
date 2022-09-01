@@ -30,5 +30,4 @@ public class PlagueSwordItem extends SwordItem {
         return super.hurtEnemy(stack, target, attacker);
 
     }
-
 }

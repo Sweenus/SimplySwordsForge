@@ -26,12 +26,12 @@ public class WatcherSwordItem extends SwordItem {
 
         int phitchance = 15;//SimplySwordsConfig.getIntValue("watcher_chance");
         int thitchance = 15;//SimplySwordsConfig.getIntValue("omen_chance");
+        ServerLevel level = (ServerLevel) attacker.level;
+        BlockPos position = attacker.getOnPos();
 
         if (attacker.getRandom().nextInt(100) <= thitchance) {
             //target.addEffect(new MobEffectInstance(ModEffects.WATCHER.get(), 1, 1), attacker);
 
-            ServerLevel level = (ServerLevel) attacker.level;
-            BlockPos position = attacker.getOnPos();
             double x = attacker.getX();
             double y = attacker.getY();
             double z = attacker.getZ();
@@ -49,7 +49,16 @@ public class WatcherSwordItem extends SwordItem {
         }
 
         if (attacker.getRandom().nextInt(100) <= phitchance) {
-            target.addEffect(new MobEffectInstance(ModEffects.OMEN.get(), 1, 1), attacker);
+            float absAmount = .5f; //SimplySwordsConfig.getFloatValue("omen_absorption_amount");
+            int pduration = 5;
+            int pthreshold = 60; //SimplySwordsConfig.getIntValue("omen_instantkill_threshold");
+            if (target.getHealth() <= pthreshold && attacker != null) {
+                target.kill();
+                if (attacker.getAbsorptionAmount() < 6f) {
+                    attacker.setAbsorptionAmount(attacker.getAbsorptionAmount() + absAmount);
+                    level.playSound(null, position, SoundEvents.ANVIL_LAND, SoundSource.BLOCKS, 0.6f, 1f);
+                }
+            }
         }
 
         return super.hurtEnemy(stack, target, attacker);
