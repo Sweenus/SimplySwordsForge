@@ -26,7 +26,6 @@ public class StormEffect extends MobEffect {
             double x = pLivingEntity.getX();
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
-            var pPlayer = Minecraft.getInstance().player;
             LocalPlayer player = Minecraft.getInstance().player;
             Entity playerEntity = (Entity) player;
 
@@ -35,10 +34,10 @@ public class StormEffect extends MobEffect {
                 List<LivingEntity> list = pLivingEntity.level.getEntitiesOfClass(LivingEntity.class, aabb);
 
                 for (LivingEntity livingEntity : list) {
+                    BlockPos pposition = livingEntity.getOnPos();
+
                     if (livingEntity != playerEntity && livingEntity.distanceTo(playerEntity) >= 5) {
-                        LightningBolt lightning = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
-                        level.addFreshEntity(lightning);
-                        lightning.setPos(x, y, z);
+                        Entity lightning = EntityType.LIGHTNING_BOLT.spawn(level, null, null, null, pposition, MobSpawnType.TRIGGERED, true, true);
 
                     }
                 }
