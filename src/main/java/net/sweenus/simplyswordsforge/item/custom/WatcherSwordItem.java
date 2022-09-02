@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.phys.AABB;
+import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 import net.sweenus.simplyswordsforge.effect.ModEffects;
 
 import java.util.List;
@@ -24,8 +25,9 @@ public class WatcherSwordItem extends SwordItem {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
-        int phitchance = 15;//SimplySwordsConfig.getIntValue("watcher_chance");
-        int thitchance = 15;//SimplySwordsConfig.getIntValue("omen_chance");
+        int phitchance = SimplySwordsConfig.watcher_chance.get();
+        int thitchance = SimplySwordsConfig.omen_chance.get();
+        float watcherheal = SimplySwordsConfig.watcher_heal.get();
         ServerLevel level = (ServerLevel) attacker.level;
         BlockPos position = attacker.getOnPos();
 
@@ -42,16 +44,15 @@ public class WatcherSwordItem extends SwordItem {
             for (LivingEntity livingEntity : list) {
                 if (livingEntity != attacker) {
                     livingEntity.hurt(DamageSource.FREEZE, .5f);
-                    attacker.heal(.5f);
+                    attacker.heal(watcherheal);
                     level.playSound(null, position, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.6f, 1f);
                 }
             }
         }
 
         if (attacker.getRandom().nextInt(100) <= phitchance) {
-            float absAmount = .5f; //SimplySwordsConfig.getFloatValue("omen_absorption_amount");
-            int pduration = 5;
-            int pthreshold = 60; //SimplySwordsConfig.getIntValue("omen_instantkill_threshold");
+            float absAmount = SimplySwordsConfig.omen_absorption.get();
+            float pthreshold = SimplySwordsConfig.omen_threshold.get();
             if (target.getHealth() <= pthreshold && attacker != null) {
                 target.kill();
                 if (attacker.getAbsorptionAmount() < 6f) {

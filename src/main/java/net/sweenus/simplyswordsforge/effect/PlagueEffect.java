@@ -19,6 +19,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.server.ServerLifecycleHooks;
+import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 
 import java.util.List;
 
@@ -33,18 +34,18 @@ public class PlagueEffect extends MobEffect {
             double x = pLivingEntity.getX();
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
-            var attacker = Minecraft.getInstance().player;
-            //int spreadchance = SimplySwordsConfig.getIntValue("plague_spread_chance");
+            LocalPlayer player = Minecraft.getInstance().player;
+            Entity playerEntity = (Entity) player;
+            int spreadchance = SimplySwordsConfig.plague_spread_chance.get();
+            int pduration = SimplySwordsConfig.plague_duration.get();
 
             if (pLivingEntity.getRandom().nextInt(100) <= 1) {
                 AABB aabb = new AABB(x, y, z, (x + 1), (y + 1), (z + 1)).inflate(5).expandTowards(0.0D, pLivingEntity.level.getMaxBuildHeight(), 0.0D);
                 List<LivingEntity> list = pLivingEntity.level.getEntitiesOfClass(LivingEntity.class, aabb);
-                LocalPlayer player = Minecraft.getInstance().player;
-                Entity playerEntity = (Entity) player;
 
                 for (LivingEntity livingEntity : list) {
-                    if (livingEntity != playerEntity && livingEntity.getRandom().nextInt(100) <= 15) {
-                            livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 1));
+                    if (livingEntity != player && livingEntity.getRandom().nextInt(100) <= spreadchance) {
+                            livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, pduration, 1));
                     }
                 }
             }

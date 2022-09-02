@@ -6,12 +6,15 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 import net.sweenus.simplyswordsforge.effect.ModEffects;
 import net.sweenus.simplyswordsforge.item.ModItems;
 import org.slf4j.Logger;
@@ -28,6 +31,7 @@ public class SimplySwords {
 
         ModItems.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SimplySwordsConfig.SPEC, "simplyswords_common.toml");
 
 
         modEventBus.addListener(this::commonSetup);

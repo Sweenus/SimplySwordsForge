@@ -3,6 +3,7 @@ package net.sweenus.simplyswordsforge.effect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 
 public class FreezeEffect extends MobEffect {
     public FreezeEffect(MobEffectCategory MobEffectCategory, int color) {

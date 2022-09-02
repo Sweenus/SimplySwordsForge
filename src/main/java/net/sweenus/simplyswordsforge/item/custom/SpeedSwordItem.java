@@ -7,6 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 
 public class SpeedSwordItem extends SwordItem {
     public SpeedSwordItem(Tier pTier, int attackDamage, float attackSpeed, Properties settings) {
@@ -16,8 +17,8 @@ public class SpeedSwordItem extends SwordItem {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
-        int shitchance = 15; //SimplySwordsConfig.getIntValue("speed_chance");
-        int sduration = 50; //SimplySwordsConfig.getIntValue("speed_duration");
+        int shitchance = SimplySwordsConfig.speed_chance.get();
+        int sduration = SimplySwordsConfig.speed_duration.get();
 
         if (attacker.getRandom().nextInt(100) <= shitchance) {
             attacker.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, sduration, 1), attacker);

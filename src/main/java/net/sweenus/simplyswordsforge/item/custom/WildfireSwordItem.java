@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 import net.sweenus.simplyswordsforge.effect.ModEffects;
 
 import javax.annotation.Nonnull;
@@ -19,11 +20,11 @@ public class WildfireSwordItem extends SwordItem {
     @Override
     public boolean hurtEnemy(@Nonnull ItemStack stack, @Nonnull LivingEntity target, @Nonnull LivingEntity attacker) {
 
-        int phitchance = 15; //SimplySwordsConfig.getIntValue("wildfire_chance");
-        int pduration = 300;//SimplySwordsConfig.getIntValue("wildfire_duration");
+        int phitchance = SimplySwordsConfig.wildfire_chance.get();
+        int pduration = SimplySwordsConfig.wildfire_duration.get();
 
         if (attacker.getRandom().nextInt(100) <= phitchance) {
-            target.addEffect(new MobEffectInstance(ModEffects.WILDFIRE.get(), pduration, 3));
+            target.addEffect(new MobEffectInstance(ModEffects.WILDFIRE.get(), 5, 3));
         }
 
         return super.hurtEnemy(stack, target, attacker);

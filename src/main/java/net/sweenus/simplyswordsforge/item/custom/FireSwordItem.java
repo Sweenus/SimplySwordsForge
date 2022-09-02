@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 import net.sweenus.simplyswordsforge.effect.ModEffects;
 
 public class FireSwordItem extends SwordItem {
@@ -15,7 +16,7 @@ public class FireSwordItem extends SwordItem {
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        int fhitchance = 15; //SimplySwordsConfig.getIntValue("brimstone_chance");
+        int fhitchance = SimplySwordsConfig.brimstone_chance.get();
 
 
         if (attacker.getRandom().nextInt(100) <= fhitchance) {
