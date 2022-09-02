@@ -1,6 +1,9 @@
 package net.sweenus.simplyswordsforge.util;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.event.LootTableLoadEvent;
@@ -8,28 +11,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ModLootTableModifiers {
 
-    /*private static final Identifier ELDER_GUARDIAN_ID  = new Identifier("minecraft", "entities/elder_guardian");
-    private static final Identifier WARDEN_ID  = new Identifier("minecraft", "entities/warden");
+    //public static void modifyLootTables() {
 
-    private static final Identifier JUNGLE_TEMPLE_CHEST_ID  = new Identifier("minecraft", "chests/jungle_temple");
-
-    private static final Identifier ANCIENT_CITY_CHEST_ID  = new Identifier("minecraft", "chests/ancient_city");
-
-    @SubscribeEvent
-    public void lootLoad(LootTableLoadEvent evt) {
-        if (evt.getName().toString().equals("minecraft:chests/simple_dungeon")) {
-
-            LootEntry entry = new LootTable.Builder(new ResourceLocation("mymod:inject/simple_dungeon"), <weight>, <quality>, <conditions>, <entryName>); // weight doesn't matter since it's the only entry in the pool. Other params set as you wish.
-
-            LootPool pool = new LootPool(new LootEntry[] {entry}, <conditions>, <rolls>, <bonusRolls>, <name>); // Other params set as you wish.
-
-            evt.getTable().addPool(pool);
-        }
-    }
-
-    public static void modifyLootTables() {
-
-        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+        //LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
 
             /*if (source.isBuiltin() && ELDER_GUARDIAN_ID.equals(id) || WARDEN_ID.equals(id)) {
 

@@ -45,7 +45,7 @@ public class WatcherSwordItem extends SwordItem {
                 if (livingEntity != attacker) {
                     livingEntity.hurt(DamageSource.FREEZE, .5f);
                     attacker.heal(watcherheal);
-                    level.playSound(null, position, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.6f, 1f);
+                    level.playSound(null, position, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.3f, 1f);
                 }
             }
         }

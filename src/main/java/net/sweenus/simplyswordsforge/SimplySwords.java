@@ -2,6 +2,7 @@ package net.sweenus.simplyswordsforge;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -52,5 +53,8 @@ public class SimplySwords {
         public static void onClientSetup(FMLClientSetupEvent event) {
 
         }
+    }
+    public static ResourceLocation id(String path) {
+        return new ResourceLocation(MOD_ID, path);
     }
 }

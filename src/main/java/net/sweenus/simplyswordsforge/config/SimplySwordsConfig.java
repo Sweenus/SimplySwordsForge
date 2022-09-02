@@ -40,7 +40,7 @@ public final class SimplySwordsConfig {
         BUILDER.push("EFFECT CHANCE");
         storm_chance = BUILDER.comment("Chance to proc Storm on hit").define("Storm Chance", 15);
         wildfire_chance = BUILDER.comment("Chance to proc Wildfire on hit").define("Wildfire Chance", 10);
-        omen_chance = BUILDER.comment("Chance to proc Omen (Instant-kill) on hit").define("Omen Chance", 25);
+        omen_chance = BUILDER.comment("Chance to proc Omen (Instant-kill) on hit").define("Omen Chance", 10);
         watcher_chance = BUILDER.comment("Chance to proc Watcher (lifesteal) on hit").define("Watcher Chance", 15);
         speed_chance = BUILDER.comment("Chance to proc Speed on hit").define("Speed Chance", 15);
         levitate_chance = BUILDER.comment("Chance to proc Levitate on hit").define("Levitate Chance", 15);
