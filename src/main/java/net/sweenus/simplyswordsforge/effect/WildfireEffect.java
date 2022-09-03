@@ -23,8 +23,8 @@ public class WildfireEffect extends MobEffect {
         if (!pLivingEntity.level.isClientSide()) {
             ServerLevel level = (ServerLevel)pLivingEntity.level;
             BlockPos position = pLivingEntity.getOnPos();
-            LocalPlayer player = Minecraft.getInstance().player;
-            Entity playerEntity = (Entity) player;
+            //LocalPlayer player = Minecraft.getInstance().player;
+            //Entity playerEntity = (Entity) player;
             double x = pLivingEntity.getX();
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
@@ -33,9 +33,7 @@ public class WildfireEffect extends MobEffect {
             List<LivingEntity> list = pLivingEntity.level.getEntitiesOfClass(LivingEntity.class, aabb);
 
             for (LivingEntity livingEntity : list) {
-                if (livingEntity != playerEntity) {
                     livingEntity.setSecondsOnFire(pduration);
-                }
             }
 
         }

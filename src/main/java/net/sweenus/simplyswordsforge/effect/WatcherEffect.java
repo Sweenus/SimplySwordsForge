@@ -31,8 +31,6 @@ public class WatcherEffect extends MobEffect {
             int pduration = 1;
             float rAmount = 0.5f; //SimplySwordsConfig.getFloatValue("watcher_restore_amount");
             //Box box = new Box(x + 10, y +10, z + 10, x - 10, y - 10, z - 10);
-            LocalPlayer player = Minecraft.getInstance().player;
-            Entity playerEntity = (Entity) player;
 
             //for(Entity e: level.getEntitiesByType(pLivingEntity.getType(), box, EntityPredicates.VALID_ENTITY))
             /* for(Entity e: level.getOtherEntities(pPlayer, box, EntityPredicates.VALID_ENTITY))
@@ -47,11 +45,9 @@ public class WatcherEffect extends MobEffect {
             List<LivingEntity> list = pLivingEntity.level.getEntitiesOfClass(LivingEntity.class, aabb);
 
             for (LivingEntity livingEntity : list) {
-                if (livingEntity != player) {
                     livingEntity.hurt(DamageSource.FREEZE, .5f);
-                    player.heal(.5f);
+                    //player.heal(.5f);
                     level.playSound(null, position, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.6f, 1f);
-                }
             }
         }
         super.applyEffectTick(pLivingEntity, pAmplifier);

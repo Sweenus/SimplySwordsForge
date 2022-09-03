@@ -34,6 +34,7 @@ public final class SimplySwordsConfig {
     public static final ForgeConfigSpec.ConfigValue<Float> omen_threshold;
     public static final ForgeConfigSpec.ConfigValue<Float> omen_absorption;
     public static final ForgeConfigSpec.ConfigValue<Float> watcher_heal;
+    public static final ForgeConfigSpec.ConfigValue<Float> loot_weight;
 
     static {
         //Chances
@@ -69,6 +70,7 @@ public final class SimplySwordsConfig {
         omen_threshold = BUILDER.comment("When target HP is below this flat value Omen can proc").define("Omen Threshold", 60f);
         omen_absorption = BUILDER.comment("Absorption granted on Omen proc").define("Omen Absorption", 0.5f);
         watcher_heal = BUILDER.comment("Health gained per target effected by Watcher proc").define("Watcher Heal", 0.5f);
+        loot_weight = BUILDER.comment("The chance of SimplySwords loot spawning in chests (1 = 100%)").define("Loot Weight", 0.1f);
         BUILDER.pop();
 
         SPEC = BUILDER.build();

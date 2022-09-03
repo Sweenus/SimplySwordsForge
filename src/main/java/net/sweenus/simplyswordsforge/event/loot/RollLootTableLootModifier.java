@@ -8,8 +8,10 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
+import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 
 import java.util.List;
+import java.util.Random;
 
 public class RollLootTableLootModifier extends LootModifier {
 
@@ -23,7 +25,13 @@ public class RollLootTableLootModifier extends LootModifier {
     @Override
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
         // noinspection deprecation - prevent triggering global loot modifiers again
-        context.getLootTable(lootTable).getRandomItems(context, generatedLoot::add);
+        float lootchance = SimplySwordsConfig.loot_weight.get();
+        Random rand = new Random();
+        float float_random=rand.nextFloat();
+
+        if (float_random <= lootchance) {
+            context.getLootTable(lootTable).getRandomItems(context, generatedLoot::add);
+        }
         return generatedLoot;
     }
 

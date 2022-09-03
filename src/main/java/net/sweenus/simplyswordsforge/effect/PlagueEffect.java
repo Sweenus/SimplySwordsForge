@@ -3,22 +3,14 @@ package net.sweenus.simplyswordsforge.effect;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.protocol.status.ServerStatus;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.server.ServerLifecycleHooks;
 import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 
 import java.util.List;
@@ -34,8 +26,8 @@ public class PlagueEffect extends MobEffect {
             double x = pLivingEntity.getX();
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();
-            LocalPlayer player = Minecraft.getInstance().player;
-            Entity playerEntity = (Entity) player;
+            //LocalPlayer player = Minecraft.getInstance().player;
+            //Entity playerEntity = (Entity) player;
             int spreadchance = SimplySwordsConfig.plague_spread_chance.get();
             int pduration = SimplySwordsConfig.plague_duration.get();
 
@@ -44,7 +36,7 @@ public class PlagueEffect extends MobEffect {
                 List<LivingEntity> list = pLivingEntity.level.getEntitiesOfClass(LivingEntity.class, aabb);
 
                 for (LivingEntity livingEntity : list) {
-                    if (livingEntity != player && livingEntity.getRandom().nextInt(100) <= spreadchance) {
+                    if (livingEntity.getRandom().nextInt(100) <= spreadchance) {
                             livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, pduration, 1));
                     }
                 }
