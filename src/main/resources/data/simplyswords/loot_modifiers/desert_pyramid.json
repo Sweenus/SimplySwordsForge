@@ -5,6 +5,6 @@
       "loot_table_id": "minecraft:chests/desert_pyramid"
     }
   ],
-  "addition": "simplyswords:runic_spear",
-  "type": "simplyswords:sword_modifiers"
+  "lootTable": "simplyswords:desert_pyramid",
+  "type": "simplyswords:roll_loot_table"
 }
