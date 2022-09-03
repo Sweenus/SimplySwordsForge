@@ -1,0 +1,10 @@
+{
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/abandoned_mineshaft"
+    }
+  ],
+  "lootTable": "simplyswords:abandoned_mineshaft",
+  "type": "simplyswords:roll_loot_table"
+}

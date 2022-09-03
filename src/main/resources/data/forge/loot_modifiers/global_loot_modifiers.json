@@ -2,6 +2,21 @@
   "replace": false,
   "entries": [
     "simplyswords:sword_modifiers",
-    "simplyswords:desert_pyramid"
+    "simplyswords:abandoned_mineshaft",
+    "simplyswords:bastion_treasure",
+    "simplyswords:desert_pyramid",
+    "simplyswords:end_city_treasure",
+    "simplyswords:igloo_chest",
+    "simplyswords:jungle_temple",
+    "simplyswords:pillager_outpost",
+    "simplyswords:ruined_portal",
+    "simplyswords:shipwreck_map",
+    "simplyswords:shipwreck_treasure",
+    "simplyswords:simple_dungeon",
+    "simplyswords:stronghold_corridor",
+    "simplyswords:stronghold_crossing",
+    "simplyswords:stronghold_library",
+    "simplyswords:underwater_ruin_big",
+    "simplyswords:underwater_ruin_small"
   ]
 }

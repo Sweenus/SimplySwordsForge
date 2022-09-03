@@ -25,7 +25,7 @@ import java.util.List;
         @Nonnull
         @Override
         protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-            generatedLoot.add(new ItemStack(addition, 1));
+            //generatedLoot.add(new ItemStack(addition, 1));
             return generatedLoot;
         }
 
