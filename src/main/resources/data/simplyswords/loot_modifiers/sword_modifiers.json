@@ -5,6 +5,6 @@
       "loot_table_id": "minecraft:chests/desert_pyramid"
     }
   ],
-  "addition": "simplyswords:runic_sai",
+  "addition": "simplyswords:sword_pool",
   "type": "simplyswords:sword_modifiers"
 }

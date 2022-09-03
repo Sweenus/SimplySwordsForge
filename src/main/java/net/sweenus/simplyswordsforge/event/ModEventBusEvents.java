@@ -18,7 +18,9 @@ public class ModEventBusEvents {
                                                            event) {
         event.getRegistry().registerAll(
                 new SwordsAdditionModifier.Serializer().setRegistryName
-                        (new ResourceLocation(SimplySwords.MOD_ID,"sword_modifiers"))
+                        (new ResourceLocation(SimplySwords.MOD_ID,"sword_modifiers")),
+                new SwordsAdditionModifier.Serializer().setRegistryName
+                        (new ResourceLocation(SimplySwords.MOD_ID,"sword_pool"))
         );
     }
 }

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "entries": [
-    "simplyswords:sword_modifiers"
+    "simplyswords:sword_modifiers",
+    "simplyswords:sword_pool"
   ]
 }
