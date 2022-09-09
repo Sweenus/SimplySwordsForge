@@ -191,6 +191,41 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 10,
+          "name": "simplyswords:runic_greathammer",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "simplyswords:runic_greataxe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "simplyswords:runic_chakram",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "simplyswords:mjolnir"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 1,
           "name": "simplyswords:brimstone_claymore"
         },
