@@ -48,8 +48,21 @@ public class ModItems {
     public static final RegistryObject<Item> IRON_CUTLASS = ITEMS.register( "iron_cutlass",
             () -> new SwordItem(Tiers.IRON, 3, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> IRON_CLAYMORE = ITEMS.register( "iron_claymore",
             () -> new SwordItem(Tiers.IRON, 5, -2.8f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> IRON_GREATHAMMER = ITEMS.register( "iron_greathammer",
+            () -> new SwordItem(Tiers.IRON, 7, -3.3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> IRON_GREATAXE = ITEMS.register( "iron_greataxe",
+            () -> new SwordItem(Tiers.IRON, 6, -3.2f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> IRON_CHAKRAM = ITEMS.register( "iron_chakram",
+            () -> new SwordItem(Tiers.IRON, 3, -3f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
     //GOLD
     public static final RegistryObject<Item> GOLD_LONGSWORD = ITEMS.register( "gold_longsword",
@@ -59,12 +72,15 @@ public class ModItems {
     public static final RegistryObject<Item> GOLD_TWINBLADE = ITEMS.register( "gold_twinblade",
             () -> new SwordItem(Tiers.GOLD, 2, -1.7f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> GOLD_RAPIER = ITEMS.register( "gold_rapier",
             () -> new SwordItem(Tiers.GOLD, 1, -1.6f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> GOLD_KATANA = ITEMS.register( "gold_katana",
             () -> new SwordItem(Tiers.GOLD, 2, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> GOLD_SAI = ITEMS.register( "gold_sai",
             () -> new SwordItem(Tiers.GOLD, 0, -1.1f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
@@ -80,12 +96,28 @@ public class ModItems {
     public static final RegistryObject<Item> GOLD_WARGLAIVE = ITEMS.register( "gold_warglaive",
             () -> new SwordItem(Tiers.GOLD, 2, -2.2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> GOLD_CUTLASS = ITEMS.register( "gold_cutlass",
             () -> new SwordItem(Tiers.GOLD, 2, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> GOLD_CLAYMORE = ITEMS.register( "gold_claymore",
             () -> new SwordItem(Tiers.GOLD, 4, -2.8f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> GOLD_GREATAXE = ITEMS.register( "gold_greataxe",
+            () -> new SwordItem(Tiers.GOLD, 5, -3.2f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> GOLD_GREATHAMMER = ITEMS.register( "gold_greathammer",
+            () -> new SwordItem(Tiers.GOLD, 6, -3.3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> GOLD_CHAKRAM = ITEMS.register( "gold_chakram",
+            () -> new SwordItem(Tiers.GOLD, 2, -3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+
     //DIAMOND
     public static final RegistryObject<Item> DIAMOND_LONGSWORD = ITEMS.register( "diamond_longsword",
             () -> new SwordItem(Tiers.DIAMOND, 3, -2.4f,
@@ -94,12 +126,15 @@ public class ModItems {
     public static final RegistryObject<Item> DIAMOND_TWINBLADE = ITEMS.register( "diamond_twinblade",
             () -> new SwordItem(Tiers.DIAMOND, 3, -1.7f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> DIAMOND_RAPIER = ITEMS.register( "diamond_rapier",
             () -> new SwordItem(Tiers.DIAMOND, 2, -1.6f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> DIAMOND_KATANA = ITEMS.register( "diamond_katana",
             () -> new SwordItem(Tiers.DIAMOND, 3, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> DIAMOND_SAI = ITEMS.register( "diamond_sai",
             () -> new SwordItem(Tiers.DIAMOND, 0, -1.1f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
@@ -115,12 +150,28 @@ public class ModItems {
     public static final RegistryObject<Item> DIAMOND_WARGLAIVE = ITEMS.register( "diamond_warglaive",
             () -> new SwordItem(Tiers.DIAMOND, 3, -2.2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> DIAMOND_CUTLASS = ITEMS.register( "diamond_cutlass",
             () -> new SwordItem(Tiers.DIAMOND, 3, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> DIAMOND_CLAYMORE = ITEMS.register( "diamond_claymore",
             () -> new SwordItem(Tiers.DIAMOND, 5, -2.8f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> DIAMOND_GREATHAMMER = ITEMS.register( "diamond_greathammer",
+            () -> new SwordItem(Tiers.DIAMOND, 7, -3.3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> DIAMOND_GREATAXE = ITEMS.register( "diamond_greataxe",
+            () -> new SwordItem(Tiers.DIAMOND, 6, -3.2f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> DIAMOND_CHAKRAM = ITEMS.register( "diamond_chakram",
+            () -> new SwordItem(Tiers.DIAMOND, 3, -3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+
     //NETHERITE
 
     public static final RegistryObject<Item> NETHERITE_LONGSWORD = ITEMS.register( "netherite_longsword",
@@ -134,9 +185,11 @@ public class ModItems {
     public static final RegistryObject<Item> NETHERITE_RAPIER = ITEMS.register( "netherite_rapier",
             () -> new SwordItem(Tiers.NETHERITE, 2, -1.6f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> NETHERITE_KATANA = ITEMS.register( "netherite_katana",
             () -> new SwordItem(Tiers.NETHERITE, 3, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
     public static final RegistryObject<Item> NETHERITE_SAI = ITEMS.register( "netherite_sai",
             () -> new SwordItem(Tiers.NETHERITE, 0, -1.1f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
@@ -157,10 +210,22 @@ public class ModItems {
             () -> new SwordItem(Tiers.NETHERITE, 3, -2f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
 
-
     public static final RegistryObject<Item> NETHERITE_CLAYMORE = ITEMS.register( "netherite_claymore",
             () -> new SwordItem(Tiers.NETHERITE, 6, -2.8f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> NETHERITE_GREATHAMMER = ITEMS.register( "netherite_greathammer",
+            () -> new SwordItem(Tiers.NETHERITE, 8, -3.3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> NETHERITE_GREATAXE = ITEMS.register( "netherite_greataxe",
+            () -> new SwordItem(Tiers.NETHERITE, 7, -3.2f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> NETHERITE_CHAKRAM = ITEMS.register( "netherite_chakram",
+            () -> new SwordItem(Tiers.NETHERITE, 3, -3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+
 
     //RUNIC
     public static final RegistryObject<Item> RUNIC_LONGSWORD = ITEMS.register( "runic_longsword",
@@ -181,7 +246,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> RUNIC_SAI = ITEMS.register( "runic_sai",
             () -> new SlownessSwordItem(Tiers.NETHERITE, 0, -1.1f,
-                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> RUNIC_SPEAR = ITEMS.register( "runic_spear",
             () -> new FreezeSwordItem(Tiers.NETHERITE, 3, -2.6f,
@@ -193,10 +258,23 @@ public class ModItems {
 
     public static final RegistryObject<Item> RUNIC_CUTLASS = ITEMS.register( "runic_cutlass",
             () -> new LevitationSwordItem(Tiers.NETHERITE, 3, -2f,
-                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
+
     public static final RegistryObject<Item> RUNIC_CLAYMORE = ITEMS.register( "runic_claymore",
             () -> new FreezeSwordItem(Tiers.NETHERITE, 6, -2.8f,
-                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1)));
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> RUNIC_GREATHAMMER = ITEMS.register( "runic_greathammer",
+            () -> new WildfireSwordItem(Tiers.NETHERITE, 8, -3.3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> RUNIC_GREATAXE = ITEMS.register( "runic_greataxe",
+            () -> new FreezeSwordItem(Tiers.NETHERITE, 7, -3.2f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> RUNIC_CHAKRAM = ITEMS.register( "runic_chakram",
+            () -> new SpeedSwordItem(Tiers.NETHERITE, 3, -3f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
     //SPECIAL
     public static final RegistryObject<Item> BRIMSTONE_CLAYMORE = ITEMS.register( "brimstone_claymore",
@@ -229,6 +307,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> TOXIC_LONGSWORD = ITEMS.register( "toxic_longsword",
             () -> new PlagueSwordItem(Tiers.NETHERITE, 3, -2.4f,
+                    new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> MJOLNIR = ITEMS.register( "mjolnir",
+            () -> new StormSwordItem(Tiers.NETHERITE, 3, -3f,
                     new Item.Properties().tab(ModCreativeModeTab.SIMPLYSWORDS_TAB).stacksTo(1).rarity(Rarity.EPIC)));
 
 
