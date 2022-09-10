@@ -19,6 +19,7 @@ import net.sweenus.simplyswordsforge.config.SimplySwordsConfig;
 import net.sweenus.simplyswordsforge.effect.ModEffects;
 import net.sweenus.simplyswordsforge.event.ModLootModifiers;
 import net.sweenus.simplyswordsforge.item.ModItems;
+import net.sweenus.simplyswordsforge.sound.ModSounds;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -34,6 +35,7 @@ public class SimplySwords {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModSounds.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SimplySwordsConfig.SPEC, "simplyswords_common.toml");
         ModLootModifiers.REGISTRY.register(modBus);
